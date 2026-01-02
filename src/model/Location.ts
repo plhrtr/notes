@@ -1,4 +1,3 @@
-import { calculateDistance } from "./util/LocationUtil";
 import { Observable } from "./util/Observable";
 
 type LocationSignals =
@@ -19,13 +18,20 @@ export default class Location extends Observable<
   LocationProperties,
   LocationSignals
 > {
-  private static MIN_LOCATION_DELTA = 10;
+  private static instance: Location | null = null;
 
   currentLocation: GeolocationPosition | null = null;
 
   constructor() {
     super();
     this.requestLocation();
+  }
+
+  public static getInstance(): Location {
+    if (!Location.instance) {
+      Location.instance = new Location();
+    }
+    return Location.instance;
   }
 
   private requestLocation() {
@@ -42,12 +48,7 @@ export default class Location extends Observable<
 
     navigator.geolocation.watchPosition(
       (position) => {
-        if (
-          this.currentLocation &&
-          calculateDistance(position, this.currentLocation) >
-            Location.MIN_LOCATION_DELTA
-        )
-          this.currentLocation = position;
+        this.currentLocation = position;
       },
       () => {
         this.checkPermission().then((permission) => {
@@ -57,6 +58,10 @@ export default class Location extends Observable<
             this.notify("error-fetching-location");
           }
         });
+      },
+      {
+        enableHighAccuracy: false,
+        maximumAge: 60000,
       },
     );
   }

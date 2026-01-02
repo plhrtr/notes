@@ -11,7 +11,7 @@ type NoteProperties = {
 /**
  * Represents a single note the user took.
  */
-export default class Note extends Observable<NoteProperties, NoteSignals> {
+export default class NoteModel extends Observable<NoteProperties, NoteSignals> {
   private _location;
   private _title;
   private _description;
