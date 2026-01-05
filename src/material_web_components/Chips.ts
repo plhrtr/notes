@@ -1,9 +1,16 @@
 import { createComponent } from "@lit/react";
 import React from "react";
 import { MdAssistChip as _MdAssistChip } from "@material/web/chips/assist-chip.js";
+import { MdChipSet as _MdChipSet } from "@material/web/chips/chip-set.js";
 import { MdFilterChip as _MdFilterChip } from "@material/web/chips/filter-chip.js";
 import { MdInputChip as _MdInputChip } from "@material/web/chips/input-chip.js";
 import { MdSuggestionChip as _MdSuggestionChip } from "@material/web/chips/suggestion-chip.js";
+
+export const MdChipSet = createComponent({
+  tagName: "md-chip-set",
+  elementClass: _MdChipSet,
+  react: React,
+});
 
 export const MdAssistChip = createComponent({
   tagName: "md-assist-chip",

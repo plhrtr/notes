@@ -1,27 +1,26 @@
+import Location from "@model/Location";
 import NoteManager from "@model/NoteManager";
 import { useState } from "react";
-import Note from "./Note";
-import { MdFab } from "@material_web_componponents/Fab";
-import { MdIcon } from "@material_web_componponents/Icon";
-import Location from "@model/Location";
 import AddNoteButton from "./AddNoteButton";
+import Note from "./Note";
 
 export default function NotesOverview() {
   const noteManager = NoteManager.getInstance();
   const location = Location.getInstance();
   const [currentLocation, setCurrentLocation] =
     useState<null | GeolocationPosition>(null);
-  location.subscribe("currentLocation", (currentLocation) =>
-    setCurrentLocation(currentLocation),
-  );
+  location.subscribe("currentLocation", (currentLocation) => {
+    setCurrentLocation(currentLocation);
+    setNotes([...noteManager.notes]);
+  });
 
   const [notes, setNotes] = useState([...noteManager.notes]);
-  noteManager.subscribe("notes", (notes) => setNotes([...notes]));
+  noteManager.subscribe("notes", () => setNotes([...noteManager.notes]));
 
   return (
     <div className="flex flex-col gap-2">
       {notes.map((note) => (
-        <Note note={note} />
+        <Note note={note} key={note.id} />
       ))}
       {currentLocation && <AddNoteButton />}
     </div>

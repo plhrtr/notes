@@ -1,8 +1,5 @@
 import { MdIcon } from "@material_web_componponents/Icon";
-import {
-  MdCircularProgress,
-  MdLinearProgress,
-} from "@material_web_componponents/ProgressIndicators";
+import { MdLinearProgress } from "@material_web_componponents/ProgressIndicators";
 import Location from "@model/Location";
 import { useState } from "react";
 
@@ -33,7 +30,7 @@ export default function LocationInitializationScreen() {
   const errorDisplay = (
     <div className="w-full flex flex-col justify-center items-center">
       <MdIcon>error</MdIcon>
-      <div>{error}</div>
+      <div className="text-center">{error}</div>
     </div>
   );
 

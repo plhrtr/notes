@@ -1,5 +1,5 @@
 /**
- * Gets the distance in meters of the two given points.
+ * Gets the distance in meters between two given points.
  * Assumes that the earth is a perfect sphere.
  * @see https://en.wikipedia.org/wiki/Haversine_formula
  */
@@ -7,30 +7,20 @@ export function calculateDistance(
   a: GeolocationPosition,
   b: GeolocationPosition,
 ): number {
-  const RADIUS_EARTH = 6371;
-  const lat1 = a.coords.latitude;
-  const lat2 = b.coords.latitude;
-  const long1 = a.coords.longitude;
-  const long2 = b.coords.longitude;
+  const RADIUS_EARTH = 6371000; // in meters
+  const lat1 = toRadians(a.coords.latitude);
+  const lat2 = toRadians(b.coords.latitude);
+  const deltaLat = lat2 - lat1;
+  const deltaLon = toRadians(b.coords.longitude - a.coords.longitude);
 
-  return (
-    inverseHarversineFunction(
-      haversineFunction(lat2 - lat1) +
-        Math.cos(toRadians(lat1)) *
-          Math.cos(toRadians(lat2)) *
-          haversineFunction(long2 - long1),
-    ) * RADIUS_EARTH
-  );
+  const hav =
+    Math.sin(deltaLat / 2) ** 2 +
+    Math.cos(lat1) * Math.cos(lat2) * Math.sin(deltaLon / 2) ** 2;
+
+  const c = 2 * Math.atan2(Math.sqrt(hav), Math.sqrt(1 - hav));
+  return RADIUS_EARTH * c;
 }
 
 function toRadians(deg: number) {
   return (deg * Math.PI) / 180;
-}
-
-function haversineFunction(deg: number) {
-  return Math.pow(Math.sin(toRadians(deg / 2)), 2);
-}
-
-function inverseHarversineFunction(deg: number) {
-  return 2 * Math.asin(Math.sqrt(deg));
 }

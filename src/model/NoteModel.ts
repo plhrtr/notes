@@ -6,12 +6,14 @@ type NoteProperties = {
   location: GeolocationPosition;
   title: string;
   description: string;
+  id: number;
 };
 
 /**
  * Represents a single note the user took.
  */
 export default class NoteModel extends Observable<NoteProperties, NoteSignals> {
+  public readonly id: number;
   private _location;
   private _title;
   private _description;
@@ -20,11 +22,13 @@ export default class NoteModel extends Observable<NoteProperties, NoteSignals> {
     location: GeolocationPosition,
     title: string,
     description: string,
+    id?: number,
   ) {
     super();
     this._location = location;
     this._title = title;
     this._description = description;
+    this.id = id ?? Date.now();
   }
 
   toJson() {

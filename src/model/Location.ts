@@ -60,7 +60,7 @@ export default class Location extends Observable<
         });
       },
       {
-        enableHighAccuracy: false,
+        enableHighAccuracy: true,
         maximumAge: 60000,
       },
     );
