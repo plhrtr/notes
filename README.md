@@ -1,3 +1,5 @@
+<img width="1280" height="640" alt="banner" src="https://github.com/user-attachments/assets/37e84cf4-9ce6-4f29-9b2d-aa7a399176db" />
+
 # Notes
 
 An app where you can persistently store all your notes.
@@ -11,7 +13,8 @@ ones you took there, and so on.
 So take notes and forget about them, till the moment you revisit the location.
 
 Have fun!
+___
 
-- User can add notes via the localStorageApi
-- For each Note the position is stored
-- User can filter notes based on his current position
+- User can save notes via the localStorageApi
+- For each Note the geolocation is stored
+- Uses the browser geolocation API
