@@ -4,6 +4,10 @@ import { useState } from "react";
 import AddNoteButton from "./AddNoteButton";
 import Note from "./Note";
 
+/**
+ * Displays all the notes inside the note noteManager.
+ * Also displays the FAB to add new notes.
+ */
 export default function NotesOverview() {
   const noteManager = NoteManager.getInstance();
   const location = Location.getInstance();

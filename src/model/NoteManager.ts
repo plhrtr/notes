@@ -22,6 +22,10 @@ export const NoteFilter = {
 } as const;
 export type NoteFilter = (typeof NoteFilter)[keyof typeof NoteFilter];
 
+/**
+ * Class that internally manages the notes of the user
+ * Is a singleton class
+ */
 export default class NoteManager extends Observable<NoteManagerProperties> {
   private static NOTE_STORE_NAME = "notes";
   private static instance: NoteManager | null = null;
@@ -80,6 +84,9 @@ export default class NoteManager extends Observable<NoteManagerProperties> {
     );
   }
 
+  /**
+   * Adds a note to manager
+   */
   addNote(note: NoteModel) {
     note.connect("note-updated", () => {
       this.saveNotes();
@@ -90,6 +97,9 @@ export default class NoteManager extends Observable<NoteManagerProperties> {
     this.saveNotes();
   }
 
+  /**
+   * Removes the note specified by the id
+   */
   removeNote(id: number) {
     this._notes = this.notes.filter((note) => {
       return note.id !== id;

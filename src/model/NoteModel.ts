@@ -31,14 +31,6 @@ export default class NoteModel extends Observable<NoteProperties, NoteSignals> {
     this.id = id ?? Date.now();
   }
 
-  toJson() {
-    return JSON.stringify({
-      location: this.location,
-      title: this.title,
-      description: this.description,
-    });
-  }
-
   get location() {
     return this._location;
   }

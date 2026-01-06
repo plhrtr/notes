@@ -3,6 +3,10 @@ import { MdLinearProgress } from "@material_web_componponents/ProgressIndicators
 import Location from "@model/Location";
 import { useState } from "react";
 
+/**
+ * Widget to show that the location is still loading.
+ * Displays an error message if there was an error or there are missing permission.
+ */
 export default function LocationInitializationScreen() {
   const location = Location.getInstance();
 

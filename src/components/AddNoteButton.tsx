@@ -1,16 +1,17 @@
-import {
-  MdFilledTonalButton,
-  MdTextButton,
-} from "@material_web_componponents/Buttons";
+import { MdTextButton } from "@material_web_componponents/Buttons";
 import { MdDialog } from "@material_web_componponents/Dialogs";
 import { MdFab } from "@material_web_componponents/Fab";
 import { MdIcon } from "@material_web_componponents/Icon";
 import { MdOutlinedTextField } from "@material_web_componponents/TextField";
 import Location from "@model/Location";
-import NoteModel from "@model/NoteModel";
 import NoteManager from "@model/NoteManager";
+import NoteModel from "@model/NoteModel";
 import { useRef, useState } from "react";
 
+/**
+ * Widget to add new notes.
+ * Display a FAB, that when pressed opens a dialog for the user to create a new note.
+ */
 export default function AddNoteButton() {
   const location = Location.getInstance();
   const noteManager = NoteManager.getInstance();
@@ -73,6 +74,7 @@ export default function AddNoteButton() {
             error={titleError}
             error-text={titleError ? "The title is required" : ""}
             required
+            autoFocus
           />
           <MdOutlinedTextField
             label="Description"
@@ -84,9 +86,7 @@ export default function AddNoteButton() {
         </form>
         <div slot="actions">
           <MdTextButton onClick={handleCreate}>Create</MdTextButton>
-          <MdFilledTonalButton onClick={closeDialog} autoFocus>
-            Cancel
-          </MdFilledTonalButton>
+          <MdTextButton onClick={closeDialog}>Cancel</MdTextButton>
         </div>
       </MdDialog>
       <MdFab

@@ -17,7 +17,7 @@
   /* material variables */
   --md-icon-font: "Material Symbols Rounded";
 
-  /* colors */
+  /* material defined colors */
   --md-sys-color-primary: rgb(43 60 0);
   --md-sys-color-surface-tint: rgb(82 101 38);
   --md-sys-color-on-primary: rgb(255 255 255);
@@ -127,6 +127,7 @@ body {
   background-color: var(--md-sys-color-surface);
 }
 
+/* Makes the material colors available in tailwindcss */
 @theme {
   --color-primary: var(--md-sys-color-primary);
   --color-surface-tint: var(--md-sys-color-surface-tint);

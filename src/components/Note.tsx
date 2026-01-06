@@ -6,6 +6,9 @@ import type NoteModel from "@model/NoteModel";
 import { calculateDistance } from "@model/util/LocationUtil";
 import { useState } from "react";
 
+/**
+ * Widget to display a single note
+ */
 export default function Note({ note }: { note: NoteModel }) {
   const noteManger = NoteManager.getInstance();
   const location = Location.getInstance();
