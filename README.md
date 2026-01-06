@@ -13,8 +13,11 @@ ones you took there, and so on.
 So take notes and forget about them, till the moment you revisit the location.
 
 Have fun!
-___
 
-- User can save notes via the localStorageApi
-- For each Note the geolocation is stored
-- Uses the browser geolocation API
+---
+
+- automatically adapts to your preferred theme (dark or light)
+- stores your notes via the localStorage API
+- uses the native geolocation API to get your information
+
+You can visit a running version under: [https://plhrtr.github.io/notes](https://plhrtr.github.io/notes)
