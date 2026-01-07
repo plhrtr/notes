@@ -20,4 +20,4 @@ Have fun!
 - stores your notes via the localStorage API
 - uses the native geolocation API to get your information
 
-You can visit a running version under: [https://plhrtr.github.io/notes](https://plhrtr.github.io/notes)
+You can visit a working version under: [https://plhrtr.github.io/notes](https://plhrtr.github.io/notes)
