@@ -14,7 +14,7 @@ So take notes and forget about them, till the moment you revisit the location.
 
 Have fun!
 
----
+## Features
 
 - automatically adapts to your preferred theme (dark or light)
 - stores your notes via the localStorage API
@@ -22,13 +22,13 @@ Have fun!
 
 You can visit a running version under: [https://plhrtr.github.io/notes](https://plhrtr.github.io/notes)
 
----
+## Project Structure
 
-# Project Structure
-
+```
 /
 ├── src/
-│ ├── compontents/ _UI compontents_
-│ ├── material*web_components/ \_Boiler plate to use material_web_components in React*
-│ └── model/ _Model for the website, holding business logic and data_
+│ ├── compontents/              # UI compontents
+│ ├── material*web_components/  # Boiler plate to use material_web_components in React
+│ └── model/                    # Model for the website, holding business logic and data
 └── ...
+```
