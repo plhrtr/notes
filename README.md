@@ -21,3 +21,14 @@ Have fun!
 - uses the native geolocation API to get your information
 
 You can visit a running version under: [https://plhrtr.github.io/notes](https://plhrtr.github.io/notes)
+
+---
+
+# Project Structure
+
+/
+├── src/
+│ ├── compontents/ _UI compontents_
+│ ├── material*web_components/ \_Boiler plate to use material_web_components in React*
+│ └── model/ _Model for the website, holding business logic and data_
+└── ...
