@@ -17,8 +17,10 @@ Have fun!
 ## Features
 
 - automatically adapts to your preferred theme (dark or light)
+- responsive design
 - stores your notes via the localStorage API
 - uses the native geolocation API to get your information
+- Handles geolocation permission and error handling
 
 You can visit a running version under: [https://plhrtr.github.io/notes](https://plhrtr.github.io/notes)
 
